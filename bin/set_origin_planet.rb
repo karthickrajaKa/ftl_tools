@@ -19,28 +19,33 @@ end
 places = planet_client[:planets]
 people = people_client[:dragons]
 
-def update_dragons_planet
+def update_dragons_planet(people, planet_list)
+  # Need to make this more generic.
   people.find.each do |dragon|
-    people.update_one(
-      {"_id" => dragon['_id']},
-      {"$set" =>
-        {
-          "origin_planet" => "Birach",
-          "group"         => "Dragons"
-        }
-      })
+    unless dragon['origin_planet']
+      planet = planet_list.sample
+      people.update_one(
+        {"_id" => dragon['_id']},
+        {"$set" =>
+          {
+            "origin_planet" => planet,
+            "group"         => "Dragons"
+          }
+        })
+    end
   end
 end
 
 def get_planet_list(places)
-  planets = Hash.new(0)
+  planets = Array.new
   places.find.each do |planet|
-    system_name = planet['name_3e']
-    puts system_name
+    planets << planet['name_3e']
   end
+  return planets
 end
 
-get_planet_list(places)
-
+planet_list = get_planet_list(places)
+update_dragons_planet(people, planet_list)
+#puts planet_list.sample
 
 
