@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 
+# bin/build_chapters.rb [-t <TITLE>]
+
+# Assumes chapters/01_01_title.txt format.
+# That is, several sub-chapters per chapter
+# Writes total/Chapter_01 as an accumulation of sub-chapters.
+# If TITLE given writes book/<TITLE>, otherwise 
+# TITLE is 'Book'.
+
 require 'fileutils'
 require 'optparse'
 
