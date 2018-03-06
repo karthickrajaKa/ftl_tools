@@ -20,6 +20,9 @@ option_parser = OptionParser.new do |opts|
   opts.on('-t', '--title TITLE', 'Title of the book') do |t|
     options[:title] = t
   end
+  opts.on('-p', '--prologue', 'Book as a prologue') do 
+    options[:prologue] = true
+  end
 end
 option_parser.parse!
 
@@ -47,7 +50,12 @@ else
   exit
 end
 
-chapter_count = 0
+if options[:prologue] == true
+  chapter_count = 0
+else
+  chapter_count = 1
+end
+
 header_space  = "\n\n"
 scene_space   = "\n\n\n\n\n"
 
