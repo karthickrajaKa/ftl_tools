@@ -74,8 +74,6 @@ pre_extras.each { |f|
   end
 }
       
-    
-
 scene_files.each do |scene_file|
   if scene_file.end_with?('.txt')
     scene = File.read("#{scene_dir}/#{scene_file}")
