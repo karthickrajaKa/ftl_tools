@@ -1,0 +1,71 @@
+#!/usr/bin/env ruby
+
+# build_chapters [-t <TITLE>]
+ 
+# Assumes scenes in scene_dir are ordered.
+# If TITLE given writes book/<TITLE>, otherwise TITLE is 'Book'.
+
+# TODO:
+#   Add other bits; dedication, afterward, author bio, etc.
+
+require 'fileutils'
+require 'optparse'
+
+book_dir    = 'book'
+chapter_dir = 'chapters'
+scene_dir = 'scenes'
+
+options = Hash.new(0)
+option_parser = OptionParser.new do |opts|
+  opts.on('-t', '--title TITLE', 'Title of the book') do |t|
+    options[:title] = t
+  end
+end
+option_parser.parse!
+
+if options[:title] == 0
+  book_name = 'Book'
+else
+  book_name = options[:title]
+end
+puts("book name is #{book_name}.")
+
+if File.directory?(book_dir)
+  FileUtils.rm_rf(book_dir)
+end
+Dir.mkdir(book_dir)
+
+if File.directory?(chapter_dir)
+  FileUtils.rm_rf(chapter_dir)
+end
+Dir.mkdir(chapter_dir)
+
+if File.directory?(scene_dir)
+  scene_files = Dir.entries(scene_dir)
+  scene_files.sort!
+else
+  puts("Need scenes.")
+  exit
+end
+
+def write_chapter(file, chapter)
+end
+
+scene_space = "\n\n\n\n\n"
+chapter_count = 0
+
+scene_files.each do |scene_file|
+  if scene_file.end_with?('.txt')
+    scene = File.read("#{scene_dir}/#{scene_file}")
+    File.open("#{chapter_dir}/Chapter_#{chapter_count}", "w") { |file|
+      file.write(scene)
+      file.write(scene_space)
+    }
+    chapter_count += 1
+
+    File.open("#{book_dir}/#{book_name}", "a+") { |file|
+      file.write(scene)
+      file.write(scene_space)
+    }
+  end
+end
