@@ -1,0 +1,10 @@
+# LibreOffice lock files.
+.~lock.*
+
+# Active vi sessions.
+*.swp
+*.swo
+
+# Created files
+total/
+book/
