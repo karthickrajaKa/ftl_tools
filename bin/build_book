@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# build_chapters [-t <TITLE>]
+# build_book [-t <TITLE>]
  
 # Assumes scenes in scene_dir are ordered.
 # If TITLE given writes book/<TITLE>, otherwise TITLE is 'Book'.
@@ -13,7 +13,7 @@ require 'optparse'
 
 book_dir    = 'book'
 chapter_dir = 'chapters'
-scene_dir = 'scenes'
+scene_dir   = 'scenes'
 
 options = Hash.new(0)
 option_parser = OptionParser.new do |opts|
@@ -28,7 +28,6 @@ if options[:title] == 0
 else
   book_name = options[:title]
 end
-puts("book name is #{book_name}.")
 
 if File.directory?(book_dir)
   FileUtils.rm_rf(book_dir)
@@ -48,11 +47,9 @@ else
   exit
 end
 
-def write_chapter(file, chapter)
-end
-
-scene_space = "\n\n\n\n\n"
 chapter_count = 0
+header_space  = "\n\n"
+scene_space   = "\n\n\n\n\n"
 
 scene_files.each do |scene_file|
   if scene_file.end_with?('.txt')
@@ -61,11 +58,17 @@ scene_files.each do |scene_file|
       file.write(scene)
       file.write(scene_space)
     }
-    chapter_count += 1
 
     File.open("#{book_dir}/#{book_name}", "a+") { |file|
+      if chapter_count == 0
+        file.write("Prologue\n")
+      else
+        file.write("Chapter #{chapter_count}\n")
+      end
+      file.write(header_space)
       file.write(scene)
       file.write(scene_space)
     }
+    chapter_count += 1
   end
 end
