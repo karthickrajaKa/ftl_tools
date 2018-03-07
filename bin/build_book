@@ -97,3 +97,13 @@ scene_files.each do |scene_file|
 end
 
 
+post_extras.each { |f|
+  extra_file_name = extra_dir + '/' + f + '.txt'
+  if File.file? extra_file_name
+    ex  = File.read(extra_file_name)
+    File.open(book_file, "a+") { |f|
+      f.write(ex)
+      f.write(scene_space)
+    }
+  end
+}
