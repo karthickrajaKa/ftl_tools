@@ -27,7 +27,7 @@ RSpec.describe 'a planet' do
     thin_atmo       = Planet.new('747777')
     expect(thin_atmo.atmo_mod).to eq(-0.25)
     dense_atmo      = Planet.new('787777')
-    expect(dense_atmo.atmo_mod).to eq(1.25)
+    expect(dense_atmo.atmo_mod).to eq(0.25)
     average_atmo    = Planet.new('777777')
     expect(average_atmo.atmo_mod).to eq(0)
     odd_atmo        = Planet.new('7C7777')
@@ -40,15 +40,38 @@ RSpec.describe 'a planet' do
     small         = Planet.new('477777')
     expect(small.size_mod).to eq(-0.25)
     large         = Planet.new('977777')
-    expect(large.size_mod).to eq(1.25)
+    expect(large.size_mod).to eq(0.25)
     otherwise     = Planet.new('777777')
     expect(otherwise.size_mod).to eq(0)
   end
 
   it 'has a density' do
-    pending 'need to build the math behind this first.'
+    reducer           = 1000
+    average           = Planet.new('345777')
+    average_reduced   = average.density / reducer
+    expect(average_reduced).to eq(5.514)
+    min               = Planet.new('947777')
+    min_reduced       = min.density / reducer
+    expect(min_reduced).to eq(2.757)
+    max               = Planet.new('287777')
+    max_reduced       = max.density / reducer
+    expect(max_reduced).to eq(9.6495)
+    asteroid          = Planet.new('077777')
+    asteroid_reduced  = asteroid.density / reducer
+    expect(asteroid_reduced).to eq(0)
   end
 
-
+  it 'has a gravity' do
+    asteroid      = Planet.new('077777')
+    expect(asteroid.gravity).to eq(0)
+    average       = Planet.new('777777')
+    expect(average.gravity).to eq(1)
+    small         = Planet.new('477777')
+    expect(small.gravity).to eq(0.75)
+    very_small    = Planet.new('477777')
+    expect(very_small.gravity).to eq(0.75)
+    large_dense   = Planet.new('997777')
+    expect(large_dense.gravity).to eq(1.5)
+  end 
 end
 

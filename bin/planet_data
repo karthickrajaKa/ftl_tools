@@ -12,3 +12,5 @@ Earth   = Planet.new('867557')
 
 puts Earth.radius
 puts Earth.atmo_mod()
+puts Birach.density
+puts Earth.density

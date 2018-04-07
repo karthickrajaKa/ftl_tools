@@ -16,28 +16,35 @@ class Planet
 
   def initialize(uwp = '777777')
     @uwp      = uwp
+    @size     = @uwp[0].to_i(16)
     @radius   = radius
     @volume   = volume
-    
-    #@density  = density
-    #@mass     = mass
+    @density  = density
+    @mass     = mass
   end
 
   def radius
-    size    = @uwp[0].to_i(16)
-    if size == 0
-      return nil
+    if @size == 0
+      @size
+    else
+       @size * 800
     end
-    size_in_miles = size * 1000
-    size_in_miles * 0.8
   end 
 
   def volume
-    (4 / 3.0) * PI * cube(@radius)
+    if @size == 0
+      0
+    else
+      (4 / 3.0) * PI * cube(@radius)
+    end
   end
 
   def density
-    @density = ERTH_DENSE
+    if @size == 0
+      0
+    else
+      ERTH_DENSE * (1 + atmo_mod - size_mod)
+    end
   end 
 
   def mass
@@ -45,28 +52,32 @@ class Planet
   end
 
   def gravity
-    radius_in_meters = @radius * 1000
-    puts("Mass is #{@mass}.")
-    G * @mass / square(radius_in_meters)
+    if @uwp[0].to_i(16) == 0
+      g = 0
+    else
+      g   = 1 + atmo_mod + size_mod
+      g   = [g, MAX_GRAVITY].min
+      g   = [g, MIN_GRAVITY].max
+    end
   end
 
   def atmo_mod
     atmo = @uwp[1].to_i(16)
-    @gravity_mod_atmo = case
+    case
       when [0,1].include?(atmo) then -0.75
       when [2,3].include?(atmo) then -0.50
       when [4,5].include?(atmo) then -0.25
-      when [8,9].include?(atmo) then 1.25
+      when [8,9].include?(atmo) then 0.25
       else  0
-      end
+    end
   end
 
   def size_mod
     size = @uwp[0].to_i(16)
-    @gravity_mod_size = case
+    case
       when size < 3 then -0.5
       when size < 5 then -0.25
-      when size > 8 then 1.25
+      when size > 8 then 0.25
       else 0
     end
   end
