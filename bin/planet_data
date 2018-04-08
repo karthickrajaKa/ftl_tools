@@ -4,8 +4,8 @@ $LOAD_PATH << File.expand_path("../../lib", __FILE__)
 
 require 'planet'
 
-Birach  = Planet.new('354623')
-Earth   = Planet.new('867557')
+Birach  = Planet.new('B354623')
+Earth   = Planet.new('D867557')
 
 #puts "Birach's gravity is #{'%.3f' % Birach.gravity}."
 #puts "Earth's gravity is #{'%.3f' % Earth.gravity}."

@@ -1,5 +1,7 @@
 # planet.rb
 # Trying to figure out the math of gravity, density, etc.
+# Values are moderated to provide a potentially long term 
+# habitable planet.
 
 # Bibilography
 #   http://pubs.usgs.gov/gip/interior/
@@ -14,9 +16,11 @@ class Planet
 
   attr_reader   :gravity, :radius, :uwp, :volume
 
-  def initialize(uwp = '777777')
+  def initialize(uwp = 'X777777')
     @uwp      = uwp
-    @size     = @uwp[0].to_i(16)
+    @size     = @uwp[1].to_i(16)
+    @atmo     = @uwp[2].to_i(16)
+    @hydro    = @uwp[3].to_i(16)
     @radius   = radius
     @volume   = volume
     @density  = density
@@ -52,7 +56,7 @@ class Planet
   end
 
   def gravity
-    if @uwp[0].to_i(16) == 0
+    if @size == 0
       g = 0
     else
       g   = 1 + atmo_mod + size_mod
@@ -62,22 +66,20 @@ class Planet
   end
 
   def atmo_mod
-    atmo = @uwp[1].to_i(16)
     case
-      when [0,1].include?(atmo) then -0.75
-      when [2,3].include?(atmo) then -0.50
-      when [4,5].include?(atmo) then -0.25
-      when [8,9].include?(atmo) then 0.25
+      when [0,1].include?(@atmo) then -0.75
+      when [2,3].include?(@atmo) then -0.50
+      when [4,5].include?(@atmo) then -0.25
+      when [8,9].include?(@atmo) then 0.25
       else  0
     end
   end
 
   def size_mod
-    size = @uwp[0].to_i(16)
     case
-      when size < 3 then -0.5
-      when size < 5 then -0.25
-      when size > 8 then 0.25
+      when @size < 3 then -0.5
+      when @size < 5 then -0.25
+      when @size > 8 then 0.25
       else 0
     end
   end
