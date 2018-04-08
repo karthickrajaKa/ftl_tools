@@ -21,6 +21,7 @@ RSpec.describe 'a planet' do
   let (:asteroid)       { Planet.new('X077777') }
   let (:large_dense)    { Planet.new('X997777') }
   let (:small)          { Planet.new('X477777') }
+  let (:rand)           { Planet.new()          }
 
   it 'has a uwp' do
     expect(average.uwp).to eq('X777777')
@@ -71,5 +72,10 @@ RSpec.describe 'a planet' do
     expect(very_small.gravity).to eq(0.5)
     expect(large_dense.gravity).to eq(1.5)
   end 
+
+  it 'has a uwp if not given one' do
+    expect(rand.uwp.length).to eq(7)
+  end
+
 end
 

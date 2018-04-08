@@ -16,8 +16,8 @@ class Planet
 
   attr_reader   :gravity, :radius, :uwp, :volume
 
-  def initialize(uwp = 'X777777')
-    @uwp      = uwp
+  def initialize(uwp = nil)
+    @uwp      = uwp ||= gen_uwp
     @size     = @uwp[1].to_i(16)
     @atmo     = @uwp[2].to_i(16)
     @hydro    = @uwp[3].to_i(16)
@@ -26,6 +26,19 @@ class Planet
     @density  = density
     @mass     = mass
   end
+
+  def roll(min, max)
+    roll  = rand(1..6) + rand(1..6)
+    roll  = [max, roll].min
+    roll  = [min, roll].max
+  end
+    
+  def gen_uwp
+    Random.new_seed
+    uwp   = 'X'
+    3.times { uwp += roll(1,10).to_s(16).upcase }
+    uwp += '000'
+  end 
 
   def radius
     if @size == 0
