@@ -12,15 +12,14 @@ RSpec.describe 'a planet' do
   let (:very_thin_atmo) { Planet.new('X727777') }
   let (:thin_atmo)      { Planet.new('X747777') }
   let (:dense_atmo)     { Planet.new('X787777') }
-  let (:average_atmo)   { Planet.new('X777777') }
   let (:odd_atmo)       { Planet.new('X7C7777') }
-  let (:very_small)     { Planet.new('X177777') }
-  let (:large)          { Planet.new('X977777') }
-  let (:min)            { Planet.new('X947777') }
-  let (:max)            { Planet.new('X287777') }
   let (:asteroid)       { Planet.new('X077777') }
-  let (:large_dense)    { Planet.new('X997777') }
+  let (:very_small)     { Planet.new('X177777') }
   let (:small)          { Planet.new('X477777') }
+  let (:large)          { Planet.new('X977777') }
+  let (:large_sparse)   { Planet.new('X947777') }
+  let (:small_dense)    { Planet.new('X287777') }
+  let (:large_dense)    { Planet.new('X997777') }
   let (:rand)           { Planet.new()          }
 
   it 'has a uwp' do
@@ -42,7 +41,7 @@ RSpec.describe 'a planet' do
     expect(very_thin_atmo.atmo_mod).to eq(-0.5)
     expect(thin_atmo.atmo_mod).to eq(-0.25)
     expect(dense_atmo.atmo_mod).to eq(0.25)
-    expect(average_atmo.atmo_mod).to eq(0)
+    expect(average.atmo_mod).to eq(0)
     expect(odd_atmo.atmo_mod).to eq(0)
   end
 
@@ -57,11 +56,11 @@ RSpec.describe 'a planet' do
     reducer           = 1000
     average_reduced   = average.density / reducer
     expect(average_reduced).to eq(5.514)
-    min_reduced       = min.density / reducer
-    expect(min_reduced).to eq(2.757)
-    max_reduced       = max.density / reducer
-    expect(max_reduced).to eq(9.6495)
-    asteroid_reduced  = asteroid.density / reducer
+    large_sparse_reduced  = large_sparse.density / reducer
+    expect(large_sparse_reduced).to eq(2.757)
+    small_dense_reduced   = small_dense.density / reducer
+    expect(small_dense_reduced).to eq(9.6495)
+    asteroid_reduced      = asteroid.density / reducer
     expect(asteroid_reduced).to eq(0)
   end
 
