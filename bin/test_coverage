@@ -1,0 +1,72 @@
+#!/usr/bin/env ruby
+
+# Just works to see what methods have tests.
+
+# This needs to become a variable, or something.
+# Making it recursive would be nice. 
+code_dirs =['lib', 'lib/careers']
+
+missing_test_case   = Array.new
+missing_tests       = Hash.new
+
+def get_defs(file) 
+  defs = Array.new
+  File.foreach(file) { |line|
+    line = line.strip()
+    if line.start_with?("def ")
+      line.gsub!('(', ' ')
+      line_array = line.split()
+      method = line_array[1]
+      method.gsub!("self\.", '')
+      defs << method unless method == "initialize"
+    end
+  }
+  defs
+end
+
+def test_case(file)
+  test_dir  ='test'
+  test_file = test_dir + '/' + 'tc_' + File.basename(file)
+end
+
+def add_missing_test(file, method, missing_tests)
+  missing_tests[file] = Array.new unless missing_tests[file]
+  missing_tests[file] << method
+end
+
+code_dirs.each { |dir|
+  continue unless File.directory?(dir)
+  Dir.entries(dir).each { |f|
+    filename = dir + '/' + f
+    if filename.end_with?("\.rb")
+      test_file = test_case(f)
+      if File.exist?(test_file)
+        file_defs = get_defs(filename)
+        test_file_defs = get_defs(test_file)
+        file_defs.each { |d|
+          add_missing_test(filename, d, missing_tests) unless test_file_defs.any? { |tests| tests.include?(d) }
+        }
+      else
+        missing_test_case << filename
+      end
+    end
+  }
+}
+
+# Output generation starts here.
+if missing_test_case.size > 0 
+  puts "Missing Test Case:"
+  missing_test_case.each { |f|
+    puts "  #{f}"
+  }
+end
+
+if missing_tests.size > 0
+  puts "Missing Tests:"
+  missing_tests.each_pair { |file, methods|
+    puts "  #{file}"
+    methods.each { |m|
+      puts "    #{m}"
+    }
+  }
+end
