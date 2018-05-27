@@ -35,7 +35,7 @@ def add_missing_test(file, method, missing_tests)
 end
 
 code_dirs.each { |dir|
-  continue unless File.directory?(dir)
+  next unless File.directory?(dir)
   Dir.entries(dir).each { |f|
     filename = dir + '/' + f
     if filename.end_with?("\.rb")
