@@ -10,6 +10,7 @@
 
 require 'fileutils'
 require 'optparse'
+require 'time'
 
 book_dir    = 'book'
 chapter_dir = 'chapters'
@@ -17,6 +18,8 @@ extra_dir   = 'extras'
 scene_dir   = 'scenes'
 pre_extras  = ['dedication', 'notes']
 post_extras = ['afterward', 'author_bio']
+oggi        = Time.now.strftime("%Y%j")
+this_dir    = Dir.pwd.split('/')[-1]
 
 options = Hash.new(0)
 option_parser = OptionParser.new do |opts|
@@ -30,7 +33,7 @@ end
 option_parser.parse!
 
 if options[:title] == 0
-  book_name = 'Book'
+  book_name = [this_dir.upcase, oggi].join('_')
 else
   book_name = options[:title]
 end
