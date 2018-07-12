@@ -8,3 +8,6 @@
 # Recent rspec failures
 spec/example.txt
 
+# Built gems.
+*.gem
+
