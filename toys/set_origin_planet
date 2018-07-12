@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# set_planet_origin.rb
+# set_planet_origin
 # 
 # Used to update characters with their planet of origin.
 

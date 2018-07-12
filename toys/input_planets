@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # run from repo parent directory. Otherwise the data directory is off.
-#   bin/input_planets.rb
+#   bin/input_planets
 # 
 # Requires an active MongoDB connection with the default settings.
 # See the "client" line if you need to change anything.
