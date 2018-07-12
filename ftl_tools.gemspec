@@ -1,11 +1,13 @@
 
 Gem::Specification.new do |s|
   s.name          = "ftl_tools".freeze
-  s.version       = "0.0.1-pre"
+  s.version       = "0.0.1-alpha"
   s.authors       = ["Leam Hall"]
   s.email         = "leamhall@gmail.com"
   s.homepage      = "https://github.com/makhidkarun/ftl_tools"
-  s.executables   = Dir.glob("bin/*")
+  Dir.glob("bin/*").each {|f|
+    s.executables   << File.basename(f)
+  }
   s.licenses      = ["GPL-3.0"]
   s.platform      = Gem::Platform::RUBY
   s.summary       = "Ruby Tools for 2d6 OGL Games."
