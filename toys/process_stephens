@@ -1,0 +1,113 @@
+#!/usr/bin/env ruby
+
+class Ship
+  attr_accessor :name, :size, :comments, :crew
+
+  def initialize(opts)
+    @name     = opts[:name]
+    @size     = opts[:size]
+    @comments = opts[:comments]
+    @crew     = []
+  end
+
+  def to_s
+    string = @name + ": " + @size + " dt"
+    string += @comments if @comments
+    string
+  end
+  
+  def show_crew
+    @crew.each {|c|
+      puts c.to_s
+    }
+  end
+end
+
+class Character
+  attr_reader :role, :rank, :name
+  def initialize(string)
+    @role   = ''
+    @rank   = ''
+    @name   = ''
+    @upp    = ''
+    @age    = ''
+    @gender = ''
+    @skills = Hash.new
+    @comments = ''
+    process_data(string)
+  end
+
+  def process_data(string)
+    roles = ['Eng', 'Pilot', 'Gunner', 'Navg']
+    ranks = ['CAPT', 'Fleet Captain', 'First Officer', 'Second Officer', 'Third Officer', 'Fourth Officer']
+
+    line_array = string.split()
+    if string.start_with?('CAPT')
+      r     = line_array.shift(1)
+      @rank = r.join(' ').to_s
+    elsif ranks.include?("#{line_array[0]} #{line_array[1]}")
+      r     = line_array.shift(2)
+      @rank = r.join(' ').to_s
+    else
+      @rank = 'Spacer'
+    end
+    if roles.include?(line_array[0])
+      r     = line_array.shift(1)
+      @role = r.join(' ').to_s
+    end
+    n       = line_array.shift(2)
+    @name   = n.join(' ')
+  end 
+
+  def to_s
+    string = "  #{@role}: #{@rank} #{@name} "
+    string
+  end
+end
+
+def create_char(string)
+  char = Character.new(string)
+end
+
+### Main
+
+data_file = File.read('capt_stephens_fleet.txt')
+
+in_data = false
+crew    = []
+ships   = []
+string  = ''
+current_ship = nil
+
+data_file.each_line { |line|
+  line = line.strip()
+  if line.length == 0 and string.length > 0
+    current_ship.crew << create_char(string) unless current_ship.nil?
+    in_data = false
+    string = ''
+    next
+  elsif line.length == 0 and string.length == 0
+    next
+  else
+    in_data = true
+    line_array = line.split()
+    if line_array.length > 1 and line_array[1].match(/(\d\d\d)/)
+      opts        = Hash.new
+      opts[:name] = line_array[0]
+      opts[:size] = line_array[1].gsub!(/[()]/, '').strip()
+      opts[:comment]  = line_array[2..] if line_array[2]
+      ship = Ship.new(opts)
+      ships << ship
+      current_ship = ship
+    else 
+      string += line.strip
+      string += " "
+    end
+  end
+}
+
+ships.each {|ship|
+  puts ship.to_s
+  ship.show_crew
+}
+
