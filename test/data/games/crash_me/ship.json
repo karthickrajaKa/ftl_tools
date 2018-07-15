@@ -1,0 +1,9 @@
+{
+  "name":               "Crash Me",
+  "displacement":       400,
+  "max_jump":           2,
+  "monthly_costs":      50000,
+  "mortgage":           250000,
+  "per_jump_costs":     50000,
+  "total_cargo_space":  200
+}

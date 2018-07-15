@@ -2,7 +2,7 @@
 
 $LOAD_PATH << File.expand_path("../../lib", __FILE__)
 
-require 'planet'
+require 'planet_math'
 
 Birach  = Planet.new('B354623')
 Earth   = Planet.new('D867557')
