@@ -1,16 +1,19 @@
 #!/usr/bin/env ruby
 
-# build_book [-t <TITLE>]
+# build_book [-t <TITLE>, -p]
  
 # Assumes scenes in scene_dir are ordered.
-# If TITLE given writes book/<TITLE>, otherwise TITLE is 'Book'.
+# If TITLE given writes book/<TITLE>, otherwise TITLE is 
+# the current working directory (uppercare) appended with an 
+# underscore and an ISO 8601 compliant date string in YYYYMMDD format.
+# For example, running this in tdw_1429_1 on 15 Jul 2018 gives:
+#   TDW_1429_1_20180715 
 
 # TODO:
 #   Add other bits; dedication, afterward, author bio, etc.
 
 require 'fileutils'
 require 'optparse'
-require 'time'
 
 book_dir    = 'book'
 chapter_dir = 'chapters'
@@ -18,7 +21,7 @@ extra_dir   = 'extras'
 scene_dir   = 'scenes'
 pre_extras  = ['dedication', 'notes']
 post_extras = ['afterward', 'author_bio']
-oggi        = Time.now.strftime("%Y%j")
+today       = Time.now.strftime("%Y%m%d")
 this_dir    = Dir.pwd.split('/')[-1]
 
 options = Hash.new(0)
@@ -33,7 +36,7 @@ end
 option_parser.parse!
 
 if options[:title] == 0
-  book_name = [this_dir.upcase, oggi].join('_')
+  book_name = [this_dir.upcase, today].join('_')
 else
   book_name = options[:title]
 end
