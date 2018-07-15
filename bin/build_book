@@ -21,25 +21,32 @@ extra_dir   = 'extras'
 scene_dir   = 'scenes'
 pre_extras  = ['dedication', 'notes']
 post_extras = ['afterward', 'author_bio']
-today       = Time.now.strftime("%Y%m%d")
-this_dir    = Dir.pwd.split('/')[-1]
 
-options = Hash.new(0)
+def make_title(options)
+  if options[:title] == 0
+    book_name_base = [options[:this_dir].upcase, options[:today]].join('_')
+  else
+    book_name_base = options[:title]
+  end
+  book_name_base.gsub!(/ /, '_')
+  book_name = book_name_base.gsub(/[\W]/, '')
+end
+
+options             = Hash.new(0)
+options[:this_dir]  = Dir.pwd.split('/')[-1]
+options[:today]     = Time.now.strftime("%Y%m%d")
+
 option_parser = OptionParser.new do |opts|
   opts.on('-t', '--title TITLE', 'Title of the book') do |t|
     options[:title] = t
   end
-  opts.on('-p', '--prologue', 'Book as a prologue') do 
+  opts.on('-p', '--prologue', 'Book has a prologue') do 
     options[:prologue] = true
   end
 end
 option_parser.parse!
 
-if options[:title] == 0
-  book_name = [this_dir.upcase, today].join('_')
-else
-  book_name = options[:title]
-end
+book_name = make_title(options)
 
 if File.directory?(book_dir)
   FileUtils.rm_rf(book_dir)
