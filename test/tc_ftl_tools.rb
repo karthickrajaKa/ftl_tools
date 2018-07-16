@@ -99,4 +99,11 @@ class TestFTL_Tools < Test::Unit::TestCase
     assert_equal(rolls.max, 6)
   end
 
+  def test_square
+    assert_equal(100, FTL_Tools.square(10))
+  end
+
+  def test_cube
+    assert_equal(27, FTL_Tools.cube(3))
+  end
 end

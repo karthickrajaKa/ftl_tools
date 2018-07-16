@@ -112,4 +112,15 @@ module FTL_Tools
     my_roll
   end
   module_function :trimmed_roll
+
+  def square(num)
+    num * num
+  end
+  module_function :square
+
+  def cube(num)
+    num * num * num
+  end
+  module_function :cube
+
 end
