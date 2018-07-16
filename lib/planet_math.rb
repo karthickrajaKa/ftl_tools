@@ -7,6 +7,8 @@
 #   http://pubs.usgs.gov/gip/interior/
 #   "G" - https://en.wikipedia.org/wiki/Gravitational_constant
 
+require 'ftl_tools'
+
 class Planet
   G           = 6.674e-11
   PI          = 3.14
@@ -27,16 +29,18 @@ class Planet
     @mass     = mass
   end
 
-  def roll(min, max)
-    roll  = rand(1..6) + rand(1..6)
-    roll  = [max, roll].min
-    roll  = [min, roll].max
-  end
+  #def trimmed_roll(min, max)
+  #  roll  = FTL_Tools.roll
+  #  roll  = [max, roll].min
+  #  roll  = [min, roll].max
+  #end
     
   def gen_uwp
     Random.new_seed
     uwp   = 'X'
-    3.times { uwp += roll(1,10).to_s(16).upcase }
+    3.times { 
+      uwp += FTL_Tools.trimmed_roll(2,1,10).to_s(16).upcase 
+    }
     uwp += '000'
   end 
 

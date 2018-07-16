@@ -104,5 +104,12 @@ module FTL_Tools
     num 
   end
   module_function :roll
- 
+
+  def trimmed_roll(num, min, max)
+    my_roll = roll(num) 
+    my_roll = [max, my_roll].min
+    my_roll = [min, my_roll].max
+    my_roll
+  end
+  module_function :trimmed_roll
 end
