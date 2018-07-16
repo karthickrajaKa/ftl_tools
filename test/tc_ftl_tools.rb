@@ -80,5 +80,23 @@ class TestFTL_Tools < Test::Unit::TestCase
       assert_equal(FTL_Tools.read_user_input, 'user input')
     }
   end
-  
+ 
+  def test_roll_default
+    rolls = []
+    1000.times {
+      rolls << FTL_Tools.roll
+    }
+    assert_equal(rolls.min, 2)
+    assert_equal(rolls.max, 12)
+  end 
+
+  def test_roll_1
+    rolls = []
+    1000.times {
+      rolls << FTL_Tools.roll(1)
+    }
+    assert_equal(rolls.min, 1)
+    assert_equal(rolls.max, 6)
+  end
+
 end

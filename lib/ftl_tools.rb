@@ -95,4 +95,14 @@ module FTL_Tools
     gets.chomp
   end
   module_function :read_user_input
+
+  def roll(dice = 2)
+    num = 0
+    dice.times {
+      num += rand(1..6)
+    }
+    num 
+  end
+  module_function :roll
+ 
 end
