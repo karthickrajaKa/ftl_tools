@@ -106,4 +106,12 @@ class TestFTL_Tools < Test::Unit::TestCase
   def test_cube
     assert_equal(27, FTL_Tools.cube(3))
   end
+  
+  def test_trimmed_roll
+    1000.times {
+      roll = FTL_Tools.trimmed_roll(2,6,8)
+      assert(roll >= 6)
+      assert(roll <= 8)
+    }
+  end
 end

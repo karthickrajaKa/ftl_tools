@@ -41,7 +41,7 @@ class Planet
     if @size == 0
       @size
     else
-      (4 / 3.0) * PI * FTL_Tools.cube(@radius)
+      ((4 / 3.0) * PI * FTL_Tools.cube(@radius)).to_i
     end
   end
 
