@@ -53,6 +53,12 @@ class TestPlanet < Test::Unit::TestCase
     assert(@average.size      == 7)
   end
 
+  def test_gen_uwp
+    empty_data = Hash.new
+    p = Planet.new(empty_data)
+    p_uwp = p.uwp
+  end
+
   def test_gravity
     assert(@average.gravity   == 1)    
     assert(@asteroid.gravity  == 0)

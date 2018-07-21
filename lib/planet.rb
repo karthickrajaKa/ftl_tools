@@ -1,21 +1,29 @@
 #planet.rb
 
+# Trying to figure out the math of gravity, density, etc.
+# Values are moderated to provide a potentially long term 
+# habitable planet.
+
+# Bibilography
+#   http://pubs.usgs.gov/gip/interior/
+#   "G" - https://en.wikipedia.org/wiki/Gravitational_constant
+
+
 require 'ftl_tools'
 
 class Planet
-
   G           = 6.674e-11
   PI          = 3.14
   MIN_GRAVITY = 0.5
   MAX_GRAVITY = 1.5
   ERTH_DENSE  = 5.514e3
 
-  attr_reader :name, :location, :uwp
+  attr_reader :gravity, :name, :location, :radius, :uwp, :volume
 
   def initialize(data)
-    @name     = data['name']
-    @uwp      = data['uwp']
-    @location = data['location']
+    @name     = data['name']      || "Unknown"
+    @uwp      = data['uwp']       || gen_uwp
+    @location = data['location']  || "XXXX"
     dirt_math
   end
 
@@ -27,6 +35,16 @@ class Planet
     @volume   = volume
     @density  = density
     @mass     = mass
+  end
+
+  def gen_uwp
+    Random.new_seed
+    uwp = 'X'
+    3.times {
+      uwp += FTL_Tools.trimmed_roll(2,1,10).to_s(16).upcase
+      uwp += '000'
+    }
+    uwp
   end
 
   def radius
