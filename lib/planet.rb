@@ -79,6 +79,10 @@ class Planet
     end
   end
 
+  def remote_scan
+    "X" + @size.to_s + "X" + @hydro.to_s + "000"
+  end
+
   def size
     @size
   end

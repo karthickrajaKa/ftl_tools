@@ -77,6 +77,14 @@ class TestPlanet < Test::Unit::TestCase
     assert(@large.radius    == 7200)
   end
 
+  def test_remote_scan
+    assert(@average.remote_scan   == "X7X7000")
+    assert(@asteroid.remote_scan  == "X0X0000")
+    assert(@small.remote_scan     == "X1X1000")
+    assert(@medium.remote_scan    == "X5X5000")
+    assert(@large.remote_scan     == "X9X9000")
+  end
+
   def test_size_mod
     assert(@average.size_mod  ==  0)
     assert(@asteroid.size_mod == -0.5)
