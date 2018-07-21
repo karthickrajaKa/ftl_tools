@@ -49,6 +49,8 @@ class Planet
     if @size == 0
       @size
     else
+      # This might not make sense. 
+      # Need to also account for a multiplier of 0.
       ERTH_DENSE * (1 + atmo_mod - size_mod)
     end
   end 
@@ -77,11 +79,15 @@ class Planet
     end
   end
 
+  def size
+    @size
+  end
+
   def size_mod
     case
-      when @size < 3 then -0.5
-      when @size < 5 then -0.25
-      when @size > 8 then 0.25
+      when @size <= 3 then -0.5
+      when @size <= 5 then -0.25
+      when @size >= 8 then 0.25
       else 0
     end
   end
