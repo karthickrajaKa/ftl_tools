@@ -56,7 +56,7 @@ class TestPlanet < Test::Unit::TestCase
   def test_gen_uwp
     empty_data = Hash.new
     p = Planet.new(empty_data)
-    p_uwp = p.uwp
+    assert(p_uwp = p.uwp)
   end
 
   def test_gravity

@@ -18,7 +18,7 @@ class Planet
   MAX_GRAVITY = 1.5
   ERTH_DENSE  = 5.514e3
 
-  attr_reader :gravity, :name, :location, :radius, :uwp, :volume
+  attr_reader :name, :location, :uwp
 
   def initialize(data)
     @name     = data['name']      || "Unknown"
