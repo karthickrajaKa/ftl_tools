@@ -107,20 +107,42 @@ class TestFTL_Tools < Test::Unit::TestCase
     assert_equal(27, FTL_Tools.cube(3))
   end
  
-  def test_roller
+  def test_roller_with_num_dice_and_modifier
     1000.times {
       roll_string = '2d6+3'
-      roll = FTL_Tools.roller(roll_string)
-      assert(roll <= 15)
-      assert(roll >= 5)
+      min         = 5
+      max         = 15
+      roll        = FTL_Tools.roller(roll_string)
+      assert((min..max) === roll)
+    }
+  end
+
+  def test_roller_with_num_dice_no_modifier
+    1000.times {
+      roll_string = '2d6'
+      min         = 2
+      max         = 12
+      roll        = FTL_Tools.roller(roll_string)
+      assert((min..max) === roll)
+    }
+  end
+
+  def test_roller_with_no_num_dice_no_modifier
+    1000.times {
+      roll_string = 'd6'
+      min         = 1
+      max         = 6
+      roll        = FTL_Tools.roller(roll_string)
+      assert((min..max) === roll)
     }
   end
 
   def test_trimmed_roll
     1000.times {
-      roll = FTL_Tools.trimmed_roll(2,6,8)
-      assert(roll >= 6)
-      assert(roll <= 8)
+      min   = 6
+      max   = 8
+      roll = FTL_Tools.trimmed_roll(2,min,max)
+      assert((min..max) === roll)
     }
   end
 end

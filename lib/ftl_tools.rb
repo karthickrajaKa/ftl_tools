@@ -113,10 +113,10 @@ module FTL_Tools
       modifier = roll_string[modi..-1].to_i
     end
 
-    if roll_string.start_with?('d')
+    d_index     = roll_string.index('d')
+    if d_index == 0
       dice_num    = 1
     else
-      d_index     = roll_string.index('d')
       dice_num    = roll_string[0...d_index].to_i
     end
     dice_type     = roll_string[d_index + 1..-1].to_i
