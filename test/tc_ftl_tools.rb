@@ -106,7 +106,16 @@ class TestFTL_Tools < Test::Unit::TestCase
   def test_cube
     assert_equal(27, FTL_Tools.cube(3))
   end
-  
+ 
+  def test_roller
+    1000.times {
+      roll_string = '2d6+3'
+      roll = FTL_Tools.roller(roll_string)
+      assert(roll <= 15)
+      assert(roll >= 5)
+    }
+  end
+
   def test_trimmed_roll
     1000.times {
       roll = FTL_Tools.trimmed_roll(2,6,8)

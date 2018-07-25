@@ -105,6 +105,30 @@ module FTL_Tools
   end
   module_function :roll
 
+  def roller(roll_string)
+    if roll_string.index(/[\+-]/).nil?
+      modifier = 0
+    else
+      modi     =   roll_string.index(/[\+-]/)
+      modifier = roll_string[modi..-1].to_i
+    end
+
+    if roll_string.start_with?('d')
+      dice_num    = 1
+    else
+      d_index     = roll_string.index('d')
+      dice_num    = roll_string[0...d_index].to_i
+    end
+    dice_type     = roll_string[d_index + 1..-1].to_i
+
+    roll = modifier
+    dice_num.times {
+      roll += rand(1..dice_type)
+    }
+    return roll
+  end
+  module_function :roller
+
   def trimmed_roll(num, min, max)
     my_roll = roll(num) 
     my_roll = [max, my_roll].min
