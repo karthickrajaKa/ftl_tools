@@ -1,6 +1,6 @@
-# planet_spec.rb
+# planet_math_spec.rb
 
-require 'planet'
+require 'planet_math'
 
 RSpec.configure do |config|
   config.example_status_persistence_file_path = 'spec/example.txt'

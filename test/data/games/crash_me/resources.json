@@ -1,0 +1,10 @@
+{
+  "cash": 250000,
+  "cargo": {
+    "textiles": 3,
+    "spice": 5,
+    "weapons": 9,
+    "medicinals": 30
+  },
+  "location": "Birach"
+}

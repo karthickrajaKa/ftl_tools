@@ -1,0 +1,7 @@
+# title: base price: per unit volume in dT: sell mods : buy mods
+textiles:1000:1:Ag 7:Hi 2, NA 3
+medicinals:5000:1::In 2, Po 2, Ri 2
+vehicles:6000:4:In 2:Ni 2, Hi 1
+rare metals:10000:1::Ri 2, In 3
+spice:2500:1::Hi 2, Ri 3, Po 3
+weapons:4500:1:Hi 2: Po 6
