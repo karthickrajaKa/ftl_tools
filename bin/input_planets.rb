@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+# In mongo, if you 'use places', you can get a random planet:
+#   db.planets.aggregate({$sample: { size: 1}}).pretty()
+
 require 'csv'
 require 'mongo'
 
