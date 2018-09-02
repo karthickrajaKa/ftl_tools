@@ -45,6 +45,20 @@ module FTL_Tools
   end
   module_function :get_data_csv
 
+	def array_from_string(string, sep = nil)
+		clean_string_array = Array.new
+		if sep.nil?
+			string_array = string.split()
+		else
+			string_array = string.split(sep)
+		end	
+		string_array.each {|item|
+			clean_string_array << item.strip()
+		}
+		clean_string_array
+	end
+	module_function :array_from_string
+
   def array_of_planets(data_dir, file)
     require 'planet'
     planet_data = get_data_csv(data_dir, file)
@@ -103,6 +117,7 @@ module FTL_Tools
 		number
 	end
 	module_function :hex_to_int
+
   def read_user_input
     gets.chomp
   end

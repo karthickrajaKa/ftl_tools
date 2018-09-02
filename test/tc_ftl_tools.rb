@@ -52,12 +52,20 @@ class TestFTL_Tools < Test::Unit::TestCase
 		assert(FTL_Tools.hex_to_int(number) == nil)	
 	end
 
-  #def test_array_from_string_default_sep
-  #  string  		= "In 2 Ri -3"
-  #  test_array 	= ["In", "2", "Ri", "-3"]
-  #  produced_array = FTL_Tools.array_from_string(string)
-  #  assert(produced_array == test_array)
-  #end
+  def test_array_from_string_default_sep
+    string  		= "In 2 Ri -3"
+    test_array 	= ["In", "2", "Ri", "-3"]
+    produced_array = FTL_Tools.array_from_string(string)
+    assert(produced_array == test_array)
+  end
+
+  def test_array_from_string_colon_sep
+    string  		= "In: 2: Ri: -3"
+		sep					= ":"
+    test_array 	= ["In", "2", "Ri", "-3"]
+    produced_array = FTL_Tools.array_from_string(string, sep)
+    assert(produced_array == test_array)
+  end
 
   def test_hash_from_string
     string  = "In 2, Ri -3"
