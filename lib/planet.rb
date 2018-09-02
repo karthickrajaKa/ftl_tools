@@ -28,9 +28,9 @@ class Planet
   end
 
   def dirt_math
-    @size     = @uwp[1].to_i(16)
-    @atmo     = @uwp[2].to_i(16)
-    @hydro    = @uwp[3].to_i(16)
+    @size     = FTL_Tools.hex_to_int(@uwp[1])
+    @atmo     = FTL_Tools.hex_to_int(@uwp[2])
+    @hydro    = FTL_Tools.hex_to_int(@uwp[3])
     @radius   = radius
     @volume   = volume
     @density  = density

@@ -91,6 +91,18 @@ module FTL_Tools
   end
   module_function :hash_from_string 
 
+	def hex_to_int(number)
+		number = number.upcase unless number.nil?
+		if ("0".."9").include?(number)
+			number = number.to_i
+		elsif ("A".."F").include?(number)
+			number = number.to_i(16)
+		else
+			number = nil
+		end
+		number
+	end
+	module_function :hex_to_int
   def read_user_input
     gets.chomp
   end

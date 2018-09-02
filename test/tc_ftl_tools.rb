@@ -32,6 +32,33 @@ class TestFTL_Tools < Test::Unit::TestCase
     assert(cargo.count == 6)
   end  
 
+	def test_hex_to_int_int
+		number	= "9"
+		assert(FTL_Tools.hex_to_int(number) == 9)	
+	end
+
+	def test_hex_to_int_hex
+		number	= "a"
+		assert(FTL_Tools.hex_to_int(number) == 10)	
+	end
+
+	def test_hex_to_int_high_alpha
+		number	= "G"
+		assert(FTL_Tools.hex_to_int(number) == nil)	
+	end
+	
+	def test_hex_to_int_low_num
+		number	= "-1"
+		assert(FTL_Tools.hex_to_int(number) == nil)	
+	end
+
+  #def test_array_from_string_default_sep
+  #  string  		= "In 2 Ri -3"
+  #  test_array 	= ["In", "2", "Ri", "-3"]
+  #  produced_array = FTL_Tools.array_from_string(string)
+  #  assert(produced_array == test_array)
+  #end
+
   def test_hash_from_string
     string  = "In 2, Ri -3"
     test_hash = {"In" => 2, "Ri" => -3}
