@@ -6,9 +6,12 @@ $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 require 'mongo'
 require 'character'
 require 'character_tools'
-#require 'presenter'
 require 'optparse'
-#require 'errors'
+
+# Options to set:
+#		database
+#		collection
+#		data file
 
 Mongo::Logger.logger.level = Logger::WARN
 client  = Mongo::Client.new(['localhost:27017'], :database => 'people')
