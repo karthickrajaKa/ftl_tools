@@ -3,4 +3,4 @@ language: ruby
 rvm:
   - 2
 
-install: gem install sqlite3
+install: gem install sqlite3 mongo
