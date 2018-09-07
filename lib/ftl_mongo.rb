@@ -31,5 +31,8 @@ class MongoConn
 		@conn.count()
 	end
 
+	def find(query)
+		@conn.find(query).first
+	end
 end
 

@@ -26,4 +26,14 @@ class TestMongo < Test::Unit::TestCase
 	def test_conn_count_equal_test_value
 		assert(@conn.count() == @records)
 	end	
+
+	def test_find_one_good
+		# This assumes 'Tala Domici' is in the data. 
+		# Need to fix that assumption.
+		query 	= {name: 'Tala Domici'}
+		result	= @conn.find(query)
+		expected	= 'CPT'	
+		assert(result[:rank] == expected)
+	end
+
 end
