@@ -32,7 +32,11 @@ class MongoConn
 	end
 
 	def find(query)
-		@conn.find(query).first
+		results = Array.new
+		@conn.find(query).each {|doc|
+			results << doc
+		}
+		return results
 	end
 end
 

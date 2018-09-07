@@ -33,7 +33,19 @@ class TestMongo < Test::Unit::TestCase
 		query 	= {name: 'Tala Domici'}
 		result	= @conn.find(query)
 		expected	= 'CPT'	
-		assert(result[:rank] == expected)
+		assert(result[0][:rank] == expected)
 	end
 
+	def test_find_one_fail
+		query		= {name: 'Fred Liebenbaumerben454545'}
+		result	= @conn.find(query)
+		assert(result.count			== 0)
+	end
+
+	def test_find_many_good
+		query		= {group: 'Dragons'}
+		result 	= @conn.find(query)
+		assert(result.count() > 100)
+		assert(result.class		== Array)
+	end
 end
