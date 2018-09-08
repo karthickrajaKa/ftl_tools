@@ -12,7 +12,7 @@ require 'mongo'
 
 class MongoConn
 	def initialize(conn_data)
-		@conn_data 	= conn_data
+		@conn_data	= conn_data
 		@host				= @conn_data.fetch(:host, 'localhost')
 		@port				= @conn_data.fetch(:port, 27017)
 		@db					= @conn_data[:db]
@@ -23,8 +23,8 @@ class MongoConn
 	def init
 		Mongo::Logger.logger.level = Logger::WARN
 		uri			= "mongodb://#{@host}:#{@port}/#{@db}"
- 		client = Mongo::Client.new(uri)
- 		@conn	 = client[@coll]
+		client = Mongo::Client.new(uri)
+		@conn	 = client[@coll]
 	end
 
 	def count
