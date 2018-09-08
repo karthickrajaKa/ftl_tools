@@ -26,6 +26,16 @@ class TestMongo < Test::Unit::TestCase
 		assert(@conn.count() == 0)	
 	end
 
+	def test_delete
+		docs		= [ {"name": "Joaqim Domici", "rank": "Captain"}]
+		insert	= @conn.insert(docs)
+		docs		= [{"name": "Joaqim Domici"}]
+		delete	= @conn.delete(docs)
+		query		= {"name": "Joaqim Domici"}
+		result	= @conn.find(query)
+		assert(result.count() 	== 0)
+	end
+
 	def test_find_one_fail
 		query		= {name: 'Fred Liebenbaumerben454545'}
 		result	= @conn.find(query)
@@ -38,17 +48,31 @@ class TestMongo < Test::Unit::TestCase
 		query		= {"name": "Joaqim Domici"}
 		result	= @conn.find(query)
 		assert(result[0]["name"] == "Joaqim Domici")
-		assert(result.count() 	>= 1)
+		assert(result.count() 	== 1)
 	end
 
-	def test_delete
+	def test_insert_multiple
+		docs		= [ {"name": "Joaqim Domici", "rank": "Captain"},
+								{"name": "Esmarada", "rank": "Bumbling Assistant"}]
+		insert	= @conn.insert(docs)
+		query		= {}
+		result	= @conn.find(query)
+		assert(result.count() 	== 2)
+	end
+	
+	def test_update_one
+		# Think about how to do this as an array. 
+		# Maybe an array of 2 item arrays?
 		docs		= [ {"name": "Joaqim Domici", "rank": "Captain"}]
 		insert	= @conn.insert(docs)
-		docs		= [{"name": "Joaqim Domici"}]
-		delete	= @conn.delete(docs)
 		query		= {"name": "Joaqim Domici"}
 		result	= @conn.find(query)
-		assert(result.count() 	== 0)
+		assert(result[0]["rank"] == "Captain")
+		assert(result.count() 	== 1)
+		change	= { "$set": {"rank": "Actor"}}
+		@conn.update(query, change)
+		result	= @conn.find(query)
+		assert(result[0]["rank"] == "Actor")
 	end
-
+				
 end

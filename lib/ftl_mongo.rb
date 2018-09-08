@@ -31,6 +31,16 @@ class MongoConn
 		@conn.count()
 	end
 
+	def delete(docs)
+		docs.each {|doc|
+			@conn.delete_many(doc)
+		}
+	end
+
+	def drop
+		@conn.drop
+	end
+	
 	def find(query)
 		results = Array.new
 		@conn.find(query).each {|doc|
@@ -45,14 +55,7 @@ class MongoConn
 		}
 	end
 
-	def delete(docs)
-		docs.each {|doc|
-			@conn.delete_many(doc)
-		}
+	def update(query, change)
+		@conn.update_one(query, change)
 	end
-
-	def drop
-		@conn.drop
-	end
-	
 end
