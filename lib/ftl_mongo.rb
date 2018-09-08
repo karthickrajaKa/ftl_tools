@@ -38,5 +38,21 @@ class MongoConn
 		}
 		return results
 	end
-end
 
+	def insert(docs)
+		docs.each {|doc|
+			@conn.insert_one(doc)
+		}
+	end
+
+	def delete(docs)
+		docs.each {|doc|
+			@conn.delete_many(doc)
+		}
+	end
+
+	def drop
+		@conn.drop
+	end
+	
+end
