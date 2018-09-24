@@ -19,15 +19,10 @@ book_dir    = 'book'
 chapter_dir = 'chapters'
 extra_dir   = 'extras'
 scene_dir   = 'scenes'
-<<<<<<< HEAD
 pre_extras  = ['dedication']
 post_extras = ['notes', 'afterward', 'author_bio']
 oggi        = Time.now.strftime("%Y%j")
 this_dir    = Dir.pwd.split('/')[-1]
-=======
-pre_extras  = ['dedication', 'notes']
-post_extras = ['afterward', 'author_bio']
->>>>>>> b55a5833b24a4bcfe04357ff58c054e4dfe475d5
 
 def make_title(options)
   if options[:title] == 0
