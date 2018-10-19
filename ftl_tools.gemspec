@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name          = "ftl_tools".freeze
-  s.version       = "0.0.2-alpha"
+  s.version       = "0.0.3-alpha"
   s.authors       = ["Leam Hall"]
   s.email         = "leamhall@gmail.com"
   s.homepage      = "https://github.com/makhidkarun/ftl_tools"
@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.files         = Dir.glob("{bin,data,docs,lib}/**/*")
   s.require_paths = ["lib"]
   s.add_runtime_dependency 'sqlite3', '~> 1.3'
-  s.add_development_dependency 'mongo', '~> 2.0'
+  s.add_runtime_dependency 'mongo', '~> 2.0'
 end

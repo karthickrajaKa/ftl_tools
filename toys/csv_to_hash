@@ -7,33 +7,33 @@ require 'optparse'
 require 'ftl_tools'
 
 # Options to set:
-#		data file
-#		output file?
+#   data file
+#   output file?
 
-options			= Hash.new
+options     = Hash.new
 accumulator = Array.new
-hash_keys		= Array.new
+hash_keys   = Array.new
 
 def make_hash_keys(line)
-	
-	return hash_keys
+  
+  return hash_keys
 end
 
 def new_hash(hash_keys, line)
 
-	return new_hash
+  return new_hash
 end
 
-option_parser	= OptionParser.new { |opts|
-	opts.on('-f FILE', '--file FILE', 'CSV datafile to read.') { |infile|
-		options[:infile] 	= infile
-	}
+option_parser = OptionParser.new { |opts|
+  opts.on('-f FILE', '--file FILE', 'CSV datafile to read.') { |infile|
+    options[:infile]  = infile
+  }
 }
 option_parser.parse!
 
 if options[:infile].nil?
-	puts "Need a file to read."
-	exit
+  puts "Need a file to read."
+  exit
 end
 
 begin
