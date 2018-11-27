@@ -2,7 +2,8 @@
 $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 
 module FTL_Tools
-  
+  DATA_PATH = File.expand_path('../data', __dir__) 
+
   require 'csv'
   require 'json'
   require 'fileutils'
@@ -44,6 +45,24 @@ module FTL_Tools
     data
   end
   module_function :get_data_csv
+
+  def array_from_file(file)
+    fname = DATA_PATH + '/' + file
+    begin
+      new_file    = File.open(fname, 'r')
+      new_array   = []
+      new_file.each { |line|
+        line.chomp!
+        new_array << line if line !~ /#/ && (line.length > 4)
+      }
+      return new_array
+    rescue IOError
+      raise MissingFile, "No #{fname} file, sorry."
+    ensure
+      new_file.close unless new_file.nil?
+    end
+  end
+  module_function :array_from_file
 
 	def array_from_string(string, sep = nil)
 		clean_string_array = Array.new
@@ -88,6 +107,13 @@ module FTL_Tools
     cargo
   end
   module_function :get_cargo_options
+
+  def get_random_line_from_file(file)
+    my_array   = array_from_file(file)
+    return my_array.sample.strip
+  end
+  module_function :get_random_line_from_file
+        
 
   # Takes a string, and an optional seperator (default is ',').
   # Returns a hash with a string key and int value

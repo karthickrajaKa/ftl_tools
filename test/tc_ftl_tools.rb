@@ -15,6 +15,12 @@ class TestFTL_Tools < Test::Unit::TestCase
     @crew = FTL_Tools.get_data(@data_dir, 'crew.json')
   end
 
+  def test_array_from_file
+    my_array = FTL_Tools.array_from_file('plots.txt')
+    assert(my_array.class == Array)
+    assert(my_array.length >= 1)
+  end
+
   def test_array_of_planets
     planets   = Array.new
     data_dir  = 'test/data'
@@ -31,6 +37,12 @@ class TestFTL_Tools < Test::Unit::TestCase
     cargo     = FTL_Tools.get_cargo_options(data_dir, file)
     assert(cargo.count == 6)
   end  
+
+  def test_get_random_line_from_file
+    line        = FTL_Tools.get_random_line_from_file('plots.txt')
+    check_array = FTL_Tools.array_from_file('plots.txt')
+    assert(check_array.include?(line))
+  end
 
 	def test_hex_to_int_int
 		number	= "9"
