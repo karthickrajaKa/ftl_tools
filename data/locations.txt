@@ -1,0 +1,8 @@
+bedroom
+kitchen
+cafe
+street corner
+bar
+mall
+library
+book store

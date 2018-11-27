@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# 
+# bin/plotter
+#
+
+$LOAD_PATH << File.expand_path('../../lib/', __FILE__)
+
+require 'ftl_tools'
+
+plot_file     = 'plots.txt'
+location_file = 'locations.txt'
+
+
+plot = FTL_Tools.get_random_line_from_file(plot_file)
+location = FTL_Tools.get_random_line_from_file(location_file)
+
+puts "It started simple, at the #{location}, but she had #{plot} on her mind..."
+
+
