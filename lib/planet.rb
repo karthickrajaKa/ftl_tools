@@ -1,5 +1,8 @@
 #planet.rb
 
+## DEPRECATED  See free_trader repository.
+
+
 # Trying to figure out the math of gravity, density, etc.
 # Values are moderated to provide a potentially long term 
 # habitable planet.

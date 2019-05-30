@@ -1,5 +1,7 @@
 # tc_ftl_tools.rb
 
+## DEPRECATED  See free_trader repository.
+
 $LOAD_PATH << File.expand_path('../../lib', __FILE__)
 
 require "test/unit"

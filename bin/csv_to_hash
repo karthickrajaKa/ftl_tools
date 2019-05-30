@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+# csv_to_hash
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+
+require 'optparse'
+require 'ftl_tools'
+
+# Options to set:
+#		data file
+#		output file?
+
+options			= Hash.new
+accumulator = Array.new
+hash_keys		= Array.new
+
+def make_hash_keys(line)
+	
+	return hash_keys
+end
+
+def new_hash(hash_keys, line)
+
+	return new_hash
+end
+
+option_parser	= OptionParser.new { |opts|
+	opts.on('-f FILE', '--file FILE', 'CSV datafile to read.') { |infile|
+		options[:infile] 	= infile
+	}
+}
+option_parser.parse!
+
+if options[:infile].nil?
+	puts "Need a file to read."
+	exit
+end
+
+begin
+  data_file = File.open(options[:infile], 'r')
+rescue Errno::ENOENT => e
+  puts e.message
+  exit
+end
+
+data_file.close()
