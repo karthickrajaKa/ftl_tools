@@ -1,9 +1,15 @@
 require 'rake/testtask'
 
-task :default => %w[test]
+# Automate running rspec
 
-desc "Run tests"
-Rake::TestTask.new :test do |t|
-  t.pattern = 'test/tc_*rb'
-  t.warning = true
-end
+# Automate building gem
+
+# Automate pushing gem to rubygems.org
+
+#task :default => %w[test]
+
+#desc "Run tests"
+#Rake::TestTask.new :test do |t|
+#  t.pattern = 'test/tc_*rb'
+#  t.warning = true
+#end

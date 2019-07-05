@@ -11,3 +11,5 @@ spec/example.txt
 # Built gems.
 *.gem
 
+# Old code
+archive/*
