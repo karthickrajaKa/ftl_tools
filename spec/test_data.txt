@@ -1,0 +1,8 @@
+# Check the tests, the data points should be longer than 2 characters.
+# Lines that contain a '#', and blank lines, are ignored.
+
+Nice
+Nope
+Maybe
+Sorta
+Ugh
