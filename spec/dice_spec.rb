@@ -27,6 +27,11 @@ module FTLTools
       expect((1..6)).to include(roll.digits.last)
     end
 
+    it 'rolls several dice' do
+      rolls = dice.roll_several(5, 2)
+      expect(rolls.count).to be == 5
+    end
+
   end
 
 end
