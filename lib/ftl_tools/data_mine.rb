@@ -5,6 +5,9 @@ module FTLTools
   # Allows getting data from storage.
   module DataMine
 
+    # Where we store the data files.
+    DATA_PATH = File.expand_path('../../data/', __dir__)
+
     # Return a string, without newline, from a multi-line file.
     def get_random_line_from_file(file)
       lines = array_from_file(file)

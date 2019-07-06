@@ -1,63 +1,79 @@
-# FTLTools::Character provides the base object for characters.
-# character.rb
-#
+# character_spec.rb
 
-require 'ftl_tools/character_tools'
+require 'ftl_tools'
 
 module FTLTools
+
+  # Provides the basic character object.
   class Character
-    include FTLTools::CharacterTools
 
-    attr_accessor :gender, :name, :upp, :skills,
-                  :careers, :age, :rank, :stuff, :morale,
-                  :appearence, :species, :plot, :temperament, :traits,
-                  :origin
+    # Constant for the social rank designations.
+    NOBILITY = { 
+      11 => { 'F' => 'Dame',     'M' => 'Knight' }.freeze,
+      12 => { 'F' => 'Baroness', 'M' => 'Baron' }.freeze,
+      13 => { 'F' => 'Marquesa', 'M' => 'Marquis' }.freeze,
+      14 => { 'F' => 'Countess', 'M' => 'Count' }.freeze,
+      15 => { 'F' => 'Duchess',  'M' => 'Duke' }.freeze
+    }.freeze
 
-    def initialize(char = {})
-      @char = char
-      setup
+    attr_accessor :culture, :gender, :name, :upp
+
+    # Boolean, true if Noble.
+    def noble?
+      @upp[:soc] > 10
     end
 
-    def setup
-      @upp          = @char['upp']
-      @gender       = @char['gender']
-      @species      = @char['species']
-      @name         = @char['name']
-      @appearence   = @char['appearence']
-      @age          = @char['age']
-      @plot         = @char['plot']
-      @temperament  = @char['temperament']
-      @traits       = @char['traits']
-      @skills       = @char['skills']
-      @careers      = @char['careers']
-      @stuff        = @char['stuff']
-      @morale       = @char['morale']
-      @origin       = @char['origin']
+    # Generic social class, (other, citizen, noble).
+    def social_status
+      case @upp[:soc]
+        when 0..5   then 'other'
+        when 11..15 then 'noble'
+        else 'citizen'
+      end
     end
 
-    def generate
-      @upp          = @char.fetch('upp', generate_upp)
-      @gender       = @char.fetch('gender', generate_gender)
-      @species      = @char.fetch('species', generate_species)
-      @opts         = { 'gender' => @gender, 'species' => @species }
-      @name         = @char.fetch('name', generate_name(@opts))
-      @appearence   = @char.fetch('appearence', generate_appearence)
-      @age          = @char.fetch('age', 18)
-      @plot         = @char.fetch('plot', generate_plot)
-      @temperament  = @char.fetch('temperament', generate_temperament)
-      @traits       = @char.fetch('traits', generate_traits)
-      @skills       = @char.fetch('skills', Hash.new(0))
-      @careers      = @char.fetch('careers', Hash.new(0))
-      @stuff        = @char.fetch('stuff', init_stuff)
+    # Return the title, if noble.
+    def title
+      NOBILITY[@upp[:soc]][@gender]
     end
 
-    def init_stuff
-      @char['stuff'] = { 'cash' => 0, 'benefits' => Hash.new(0) }
+    # Return an int modifier based on stat.
+    def upp_mod(stat)
+      case upp[stat]
+        when 15     then 3
+        when 13..14 then 2
+        when 10..12 then 1
+        when  3..5  then -1
+        when  1..2  then -2
+        else 0
+      end
     end
 
-    def run_career(career, terms)
-      career.update_character(self, career, terms)
+    # Convert a hash upp to a string
+    def upp_to_s(upp = @upp)
+      my_str = ''
+      counter = 1
+      upp.each_pair { |k,v|
+        my_str  << '-' if counter == 7
+        my_str  << v.to_s(16).upcase
+        counter += 1 
+      }
+      my_str
     end
+
+    # Convert a string upp to a hash.
+    def upp_s_to_h(upp_s)
+      upp_a       = upp_s.split('')
+      upp_h       = Hash.new(0)
+      upp_h[:str] = upp_a[0].hex
+      upp_h[:dex] = upp_a[1].hex
+      upp_h[:end] = upp_a[2].hex
+      upp_h[:int] = upp_a[3].hex
+      upp_h[:edu] = upp_a[4].hex
+      upp_h[:soc] = upp_a[5].hex
+      upp_h 
+    end    
+
   end
 end
 

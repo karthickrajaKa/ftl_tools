@@ -6,6 +6,10 @@ module FTLTools
 
   RSpec.describe 'the module provides' do
     include DataMine
+
+    # This doesn't seem to work yet, or I don't know how to call it.
+    DATA_PATH = File.expand_path('spec/', __dir__)
+
     it 'gives a random line from a file' do
       options = %w(Nice Nope Maybe Sorta Ugh)
       output = DataMine.get_random_line_from_file('spec/test_data.txt')
