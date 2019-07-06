@@ -13,3 +13,6 @@ spec/example.txt
 
 # Old code
 archive/*
+
+# Generated documents
+doc/*
