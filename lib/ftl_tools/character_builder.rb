@@ -1,6 +1,6 @@
 # character_builder.rb
 
-require 'ftl_tools'
+#require 'ftl_tools'
 
 module FTLTools
 

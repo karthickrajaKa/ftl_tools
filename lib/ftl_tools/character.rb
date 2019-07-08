@@ -1,6 +1,6 @@
-# character_spec.rb
+# character.rb
 
-require 'ftl_tools'
+#require 'ftl_tools'
 
 module FTLTools
 
