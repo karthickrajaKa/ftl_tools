@@ -1,11 +1,10 @@
 # crewgen.rb
 
-#$LOAD_PATH << File.expand_path('../../lib', __FILE__)
-
 require 'sinatra/base'
 
 module FTLTools
-  
+
+  # Provides the web interface for the crewgen app.  
   class CrewGen < Sinatra::Base
 
     def initialize
@@ -14,6 +13,7 @@ module FTLTools
 
     configure do
       working_dir     = File.dirname(__FILE__).split('/')
+      working_dir.pop
       working_dir[-1] = 'views'
       views_dir       = working_dir.join('/')
       set :views, views_dir 
