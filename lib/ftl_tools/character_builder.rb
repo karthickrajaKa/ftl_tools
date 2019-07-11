@@ -11,20 +11,20 @@ module FTLTools
 
     attr_reader :character
 
-    def initialize(char = {})
+    def initialize()
       @character        = FTLTools::Character.new
       @dice             = FTLTools::Dice.new
-      @char             = char
-      setup
     end
- 
+
     # Queries provided data and fills in the gaps. 
-    def setup
+    def setup(char = {})
+      @char             = char
       @character.gender   = @char.fetch('gender', generate_gender)
       @character.culture  = @char.fetch('culture', generate_culture)
       @opts               = { 'gender' => @character.gender, 'culture' => @character.culture }
       @character.name     = @char.fetch('name', generate_name)
       @character.upp      = @char.fetch('upp', generate_upp)
+      return @character
     end
     
     def generate_culture

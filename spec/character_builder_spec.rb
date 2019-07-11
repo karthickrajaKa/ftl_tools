@@ -7,8 +7,8 @@ module FTLTools
   RSpec.describe 'a built character' do
     let(:character) { 
       char    = {'name' => 'Al'}
-      builder = CharacterBuilder.new(char)
-      builder.character
+      builder = CharacterBuilder.new
+      builder.setup(char)
     }
 
     it 'has a name' do
@@ -28,6 +28,12 @@ module FTLTools
       expect(character.upp.class).to eq(Hash)
     end
 
+    it 'can make different characters' do
+      char    = {'name' => 'Wilbur'}
+      builder = CharacterBuilder.new
+      new_character = builder.setup(char)
+      expect(new_character.name).to eq('Wilbur')
+    end
   end
 end
 
