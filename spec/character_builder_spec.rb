@@ -6,6 +6,7 @@ module FTLTools
 
   RSpec.describe 'a built character' do
     let(:character) { 
+      # Need to fix this so only the builder is set up each time.
       char    = {'name' => 'Al'}
       builder = CharacterBuilder.new
       builder.setup(char)

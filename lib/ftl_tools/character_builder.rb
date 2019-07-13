@@ -16,6 +16,11 @@ module FTLTools
       @dice             = FTLTools::Dice.new
     end
 
+    # Resets the builder to clear out old objects.
+    def reset
+      @character        = FTLTools::Character.new
+    end
+
     # Queries provided data and fills in the gaps. 
     def setup(char = {})
       @char             = char
@@ -36,8 +41,7 @@ module FTLTools
     end
 
     def generate_name
-      # Needs work.  :)
-      "Wilbur"
+      %w( A B C D E F G H I J K L M N O P Q R S T U V W X Y Z).sample
     end
 
     # Creates a hash for upp.

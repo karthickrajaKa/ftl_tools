@@ -9,9 +9,22 @@
   <body>
     <h1>Crew </h1>
     <ul>
-      <li>Pilot: </li>
-
-      <li>Navigator: </li>
+      <li>Pilot: 
+        <% @person = @crew['pilot'] %>
+        <%= erb :person %>
+      </li> 
+      <li>Navigator: 
+        <% @person = @crew['navigator'] %>
+        <%= erb :person %>
+      </li> 
+      <li>Engineers: 
+        <ul>
+          <% @crew['engineers'].each do |p| %>
+          <% @person = p %>
+          <li><%= erb :person %></li>
+          <% end %>
+        </ul>
+      </li> 
 
     </ul>
   </body>
