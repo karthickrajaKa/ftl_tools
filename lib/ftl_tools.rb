@@ -6,6 +6,7 @@ require 'ftl_tools/crewgen'
 require 'ftl_tools/dice'
 require 'ftl_tools/data_mine'
 require 'ftl_tools/ship'
+require 'ftl_tools/ship_builder'
 
 module FTLTools
 end
