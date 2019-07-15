@@ -16,7 +16,7 @@ module FTLTools
     end
 
     def engineer_count
-      (@drive_size / 35.0).ceil 
+      (@drive_size.to_i / 35.0).ceil 
     end
 
   end

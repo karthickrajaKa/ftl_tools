@@ -15,12 +15,12 @@ module FTLTools
     end 
 
     it 'returns a 200 status for /crew' do
-      get '/crew'
+      post '/crew'
       expect(last_response.status).to eq(200)
     end
 
     it 'has a pilot' do
-      get '/crew'
+      post '/crew'
       expect(last_response.body).to include('Pilot')
     end
 

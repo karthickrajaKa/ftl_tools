@@ -32,11 +32,11 @@ module FTLTools
     end
 
     def generate_drive_size
-      ((@ship.hull_size / 100) * 1.5).to_i
+      ((@ship.hull_size.to_i / 10) * 1.5).to_i
     end
 
     def generate_weapons
-      @ship.hull_size / 100
+      @ship.hull_size.to_i / 100
     end
 
     def generate_name
@@ -49,7 +49,7 @@ module FTLTools
 
     def generate_hold_size
       hold = @dice.roll_1 * 15
-      hold_max = @ship.hull_size / 10
+      hold_max = @ship.hull_size.to_i / 10
       [hold, hold_max].min
     end
 
