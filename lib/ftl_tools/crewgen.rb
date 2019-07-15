@@ -28,7 +28,7 @@ module FTLTools
       @crew['navigator']  = builder.setup
       builder.reset 
       @crew['engineers']  = Array.new
-      2.times {
+      @ship.engineer_count.times {
         @crew['engineers'] << builder.setup
         builder.reset 
       }
@@ -36,9 +36,10 @@ module FTLTools
     end
 
     def build_ship(params)
-      @params         = params
-      @ship       = Hash.new
-      @ship['name']   = @params[:ship_name]
+      @params       = params
+      ship_builder  = FTLTools::ShipBuilder.new
+      @ship         = ship_builder.setup(@params)
+      return @ship
     end
  
     get('/crew') do
@@ -51,8 +52,8 @@ module FTLTools
     end
 
     post('/show_ship') do
-      build_ship(params)
-      "Ship name is #{@ship['name']}"
+      @ship = build_ship(params)
+      redirect '/crew'
     end
 
   end
