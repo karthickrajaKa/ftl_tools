@@ -36,13 +36,20 @@ module FTLTools
     end
 
     def build_ship(params)
-      @params       = params
+      #@params       = params
+      p params
+      ship_data = Hash.new
+      ship_data['name'] = 'Miss Rosa'
+      ship_data['hull_size'] = 200
+      ship_data['drive_size'] = 20
+
       ship_builder  = FTLTools::ShipBuilder.new
-      @ship         = ship_builder.setup(@params)
-      return @ship
+      #@ship         = ship_builder.setup(@params)
+      @ship         = ship_builder.setup(ship_data)
     end
  
-    get('/crew') do
+    post('/crew') do
+      build_ship(params)
       build_crew
       erb :crew
     end
@@ -51,10 +58,10 @@ module FTLTools
       erb :build
     end
 
-    post('/show_ship') do
-      @ship = build_ship(params)
-      redirect '/crew'
-    end
+    #post('/show_ship') do
+    #  @ship = build_ship(params)
+    #  redirect '/crew'
+    #end
 
   end
 
