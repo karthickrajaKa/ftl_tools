@@ -41,7 +41,7 @@ module FTLTools
     end
 
     def generate_name
-      %w( A B C D E F G H I J K L M N O P Q R S T U V W X Y Z).sample
+      Name.new(@opts).to_s
     end
 
     # Creates a hash for upp.

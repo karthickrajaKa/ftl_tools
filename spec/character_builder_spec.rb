@@ -6,14 +6,12 @@ module FTLTools
 
   RSpec.describe 'a built character' do
     let(:character) { 
-      # Need to fix this so only the builder is set up each time.
-      char    = {'name' => 'Al'}
       builder = CharacterBuilder.new
-      builder.setup(char)
+      builder.setup()
     }
 
     it 'has a name' do
-      expect(character.name).to eq('Al')
+      expect(character.name).to_not be_nil
     end
 
     it 'has a gender' do

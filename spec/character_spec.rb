@@ -8,8 +8,10 @@ module FTLTools
     let(:person) { FTLTools::Character.new }
 
     it 'has a name' do
-      person.name     = 'Al'
-      expect(person.name).to eq('Al')
+      person.name     = 'Al Lefron'
+      expect(person.name).to eq('Al Lefron')
+      expect(person.first_name).to eq('Al')
+      expect(person.last_name).to eq('Lefron') 
     end
 
     it 'has a culture' do

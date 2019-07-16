@@ -74,6 +74,16 @@ module FTLTools
       upp_h 
     end    
 
+    # Return the first part of the name.
+    def first_name
+      @name.split(/ /)[0] 
+    end
+
+    # Return the last part of the name.
+    def last_name
+      @name.split(/ /)[-1]
+    end
+
   end
 end
 
