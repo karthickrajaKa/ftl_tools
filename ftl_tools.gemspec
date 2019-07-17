@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name          = "ftl_tools".freeze
-  s.version       = "0.0.4-alpha"
+  s.version       = "0.0.5-alpha"
   s.authors       = ["Leam Hall"]
   s.email         = "freetradeleague@gmail.com"
   s.homepage      = "https://github.com/makhidkarun/ftl_tools"
