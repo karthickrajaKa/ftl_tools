@@ -19,10 +19,15 @@ module FTLTools
       @data             = data
       @ship.name        = @data.fetch('name', generate_name) 
       @ship.hull_size   = @data.fetch('hull_size', generate_hull_size)
+      @ship.hull_size   = @ship.hull_size.to_i
       @ship.drive_size  = @data.fetch('drive_size', generate_drive_size)
+      @ship.drive_size  = @ship.drive_size.to_i
       @ship.weapons     = @data.fetch('weapons', generate_weapons)
+      @ship.weapons     = @ship.weapons.to_i
       @ship.passengers  = @data.fetch('passengers', generate_passengers)
+      @ship.passengers  = @ship.passengers.to_i
       @ship.hold_size   = @data.fetch('hold_size', generate_hold_size)
+      @ship.hold_size   = @ship.hold_size.to_i
       @ship.service     = @data.fetch('service', generate_service)
       return @ship
     end

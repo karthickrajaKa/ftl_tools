@@ -33,6 +33,18 @@ module FTLTools
       new_character = builder.setup(char)
       expect(new_character.name).to eq('Wilbur')
     end
+
+    it 'can add skills by a limited set of careers' do
+      # Needs more careers and tests.
+      # Add some skills based on Soc.
+      # Where to deal with the number of terms?
+      # Test the pilot
+      char    = {'career' => 'Pilot'}
+      builder = CharacterBuilder.new
+      new_character = builder.setup(char)
+      expect(new_character.skills).to include("Pilot")
+    end
+
   end
 end
 

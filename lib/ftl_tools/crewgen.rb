@@ -23,16 +23,31 @@ module FTLTools
     def build_crew
       builder             = FTLTools::CharacterBuilder.new
       @crew               = Hash.new
-      @crew['pilot']      = builder.setup
+      @crew['pilot']      = builder.setup({'career' => 'Pilot'})
       builder.reset 
-      @crew['navigator']  = builder.setup
+      @crew['navigator']  = builder.setup({'career' => 'Navigator'})
       builder.reset 
       @crew['engineers']  = Array.new
       @ship.engineer_count.times {
-        @crew['engineers'] << builder.setup
+        @crew['engineers'] << builder.setup({'career' => 'Engineer'})
         builder.reset 
       }
-      
+     
+      if @ship.steward?
+        @crew['steward'] = builder.setup({'career' => 'Steward'})
+        builder.reset 
+      end 
+
+      if @ship.medic?
+        @crew['medic'] = builder.setup({'career' => 'Medic'})
+        builder.reset 
+      end
+
+      @crew['gunners'] = Array.new
+      @ship.gunner_count.times {
+        @crew['gunners'] << builder.setup({'career' => 'Gunner'})
+        builder.reset
+      }
     end
 
     def build_ship(params)

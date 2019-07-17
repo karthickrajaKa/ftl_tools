@@ -25,6 +25,22 @@
           <% end %>
         </ul>
       </li> 
+      <li>Medic: 
+        <% @person = @crew['medic'] %>
+        <%= erb :person %>
+      </li> 
+      <li>Steward: 
+        <% @person = @crew['steward'] %>
+        <%= erb :person %>
+      </li> 
+      <li>Gunners: 
+        <ul>
+          <% @crew['gunners'].each do |p| %>
+          <% @person = p %>
+          <li><%= erb :person %></li>
+          <% end %>
+        </ul>
+      </li> 
 
     </ul>
   </body>

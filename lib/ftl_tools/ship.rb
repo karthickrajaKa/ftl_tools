@@ -8,16 +8,19 @@ module FTLTools
     attr_accessor :name, :drive_size, :hold_size, :hull_size, :passengers, :service, :weapons 
      
     def medic?
-      @hull_size >= 200
+      @hull_size.to_i >= 200
     end
 
     def steward?
-      @passengers >= 1
+      @passengers.to_i >= 1
     end
 
     def engineer_count
       (@drive_size.to_i / 35.0).ceil 
     end
 
+    def gunner_count
+      @weapons
+    end
   end
 end
