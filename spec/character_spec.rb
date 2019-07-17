@@ -58,7 +58,12 @@ module FTLTools
       person.upp      = { str: 7, dex: 7, end: 10, int: 6, edu:5, soc: 12 }
       expect(person.upp_mod(:soc)).to eq(1)
     end
-      
+
+    it 'can add and show a skill list' do
+      person.add_skill("Blade")
+      person.add_skill("GunCbt", 2)
+      expect(person.skills).to eq("Blade-1, GunCbt-2")
+    end      
 
   end
 end

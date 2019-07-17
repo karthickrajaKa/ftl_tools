@@ -18,6 +18,33 @@ module FTLTools
 
     attr_accessor :culture, :gender, :name, :upp
 
+    def initialize
+      @skills = Hash.new
+    end
+
+    # Return an alphabetic sorted list of skills.
+    def skills
+      skill_list = ""
+      @@skills = { "GunCbt" => 2, "Blade" => 1 }
+      @skills.sort.each { |k,v|
+        if skill_list.length > 0
+          skill_list += ", "
+        end
+        skill_list += "#{k}-#{v}"
+      }
+      skill_list
+    end
+
+    # Add skills
+    def add_skill(skill, level = 1)
+      level = level.to_i
+      if @skills.key?(skill)
+        @skills[skill] += level
+      else
+        @skills[skill] = level
+      end
+    end
+       
     # Boolean, true if Noble.
     def noble?
       @upp[:soc] > 10
