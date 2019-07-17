@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.platform      = Gem::Platform::RUBY
   s.summary       = "Ruby Tools for 2d6 OGL Games."
   s.description   = "People, planets, names, dice, etc."
-  s.files         = Dir.glob("{bin,data,docs,lib}/**/*")
+  s.files         = Dir.glob("{bin,data,docs,lib,views}/**/*")
   s.require_paths = ["lib"]
   s.add_runtime_dependency 'sqlite3', '~> 1'
 end

@@ -9,7 +9,7 @@
 spec/example.txt
 
 # Built gems.
-*.gem
+#*.gem
 
 # Old code
 archive/*
