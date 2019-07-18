@@ -1,0 +1,186 @@
+[200~[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1141  100  1141    0     0  49608      0 --:--:-- --:--:-- --:--:-- 49608
+      <li>Pilot: 
+        Tawanna Chavez [F] 682576&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1502  100  1502    0     0  60080      0 --:--:-- --:--:-- --:--:-- 60080
+      <li>Pilot: 
+        Chas Auger [M] 266788&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1428  100  1428    0     0  62086      0 --:--:-- --:--:-- --:--:-- 62086
+      <li>Pilot: 
+        Lera Marsh [F] B9648A&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   975  100   975    0     0  57352      0 --:--:-- --:--:-- --:--:-- 57352
+      <li>Pilot: 
+        Jermaine Hartman [M] 7A7665&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6554  100  6554    0     0   376k      0 --:--:-- --:--:-- --:--:--  376k
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1428  100  1428    0     0  57120      0 --:--:-- --:--:-- --:--:-- 57120
+      <li>Pilot: 
+        Salvador Gillespie [M] B47796&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6554  100  6554    0     0   355k      0 --:--:-- --:--:-- --:--:--  355k
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1421  100  1421    0     0  61782      0 --:--:-- --:--:-- --:--:-- 61782
+      <li>Pilot: 
+        Gino Sinclair [M] 4AAA25&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6554  100  6554    0     0   426k      0 --:--:-- --:--:-- --:--:--  426k
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1237  100  1237    0     0  68722      0 --:--:-- --:--:-- --:--:-- 68722
+      <li>Pilot: 
+        Buford Vignon [M] 635A47&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1432  100  1432    0     0  71600      0 --:--:-- --:--:-- --:--:-- 71600
+      <li>Pilot: 
+        Sung Fredriksson [M] 697A77&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   969  100   969    0     0  53833      0 --:--:-- --:--:-- --:--:-- 53833
+      <li>Pilot: 
+        Nadene Manning [F] 886857&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   969  100   969    0     0  46142      0 --:--:-- --:--:-- --:--:-- 46142
+      <li>Pilot: 
+        Romaine Simonin [F] 86545A&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1150  100  1150    0     0  52272      0 --:--:-- --:--:-- --:--:-- 52272
+      <li>Pilot: 
+        Antoine Newton [M] A76476&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1507  100  1507    0     0  55814      0 --:--:-- --:--:-- --:--:-- 55814
+      <li>Pilot: 
+        Dolly Colon [F] 6A8336&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1418  100  1418    0     0  56720      0 --:--:-- --:--:-- --:--:-- 54538
+      <li>Pilot: 
+        Jonathan Vilain [M] 75A778&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1519  100  1519    0     0  60760      0 --:--:-- --:--:-- --:--:-- 60760
+      <li>Pilot: 
+        Emory Bernard [M] 7B9A8A&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1240  100  1240    0     0  65263      0 --:--:-- --:--:-- --:--:-- 65263
+      <li>Pilot: 
+        Kasey Lesueur [F] 966874&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1433  100  1433    0     0  57320      0 --:--:-- --:--:-- --:--:-- 55115
+      <li>Pilot: 
+        Jordon Szőke [M] 788958&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1421  100  1421    0     0  71050      0 --:--:-- --:--:-- --:--:-- 71050
+      <li>Pilot: 
+        Jan Genet [M] 9288C9&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1154  100  1154    0     0  60736      0 --:--:-- --:--:-- --:--:-- 60736
+      <li>Pilot: 
+        Ron Taylor [M] 6B45C7&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1238  100  1238    0     0  51583      0 --:--:-- --:--:-- --:--:-- 51583
+      <li>Pilot: 
+        Venita Comte [F] 4437A7&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1432  100  1432    0     0  59666      0 --:--:-- --:--:-- --:--:-- 59666
+      <li>Pilot: 
+        Monroe Jackson [M] 649692&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   964  100   964    0     0  48200      0 --:--:-- --:--:-- --:--:-- 48200
+      <li>Pilot: 
+        Keven Moody [M] 856A66&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1507  100  1507    0     0  55814      0 --:--:-- --:--:-- --:--:-- 55814
+      <li>Pilot: 
+        Pierre Clement [M] 689658&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1425  100  1425    0     0  54807      0 --:--:-- --:--:-- --:--:-- 57000
+      <li>Pilot: 
+        Linwood Foster [M] 8A65A8&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1247  100  1247    0     0  54217      0 --:--:-- --:--:-- --:--:-- 54217
+      <li>Pilot: 
+        Tobias Lundberg [M] AB5BA9&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1148  100  1148    0     0  71750      0 --:--:-- --:--:-- --:--:-- 71750
+      <li>Pilot: 
+        Sang Lelong [M] 77A677&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1510  100  1510    0     0  55925      0 --:--:-- --:--:-- --:--:-- 55925
+      <li>Pilot: 
+        Albertina Wall [F] 398493&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   969  100   969    0     0  51000      0 --:--:-- --:--:-- --:--:-- 51000
+      <li>Pilot: 
+        Sergio Vargas [M] 653784&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1156  100  1156    0     0  52545      0 --:--:-- --:--:-- --:--:-- 55047
+      <li>Pilot: 
+        Isobel Stafford [F] B9A577&nbsp &nbsp Pilot-1 
+[leam@josiah ftl_tools]$ curl -X POST localhost:4567/crew | grep Pilot
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  1222  100  1222    0     0  55545      0 --:--:-- --:--:-- --:--:-- 55545
+      <li>Pilot: 
+        Tyson Acevedo [M] 6788A7&nbsp &nbsp Pilot-1 
