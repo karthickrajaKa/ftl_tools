@@ -25,7 +25,6 @@ module FTLTools
     # Return an alphabetic sorted list of skills.
     def skills
       skill_list = ""
-      @@skills = { "GunCbt" => 2, "Blade" => 1 }
       @skills.sort.each { |k,v|
         if skill_list.length > 0
           skill_list += ", "
@@ -44,7 +43,11 @@ module FTLTools
         @skills[skill] = level
       end
     end
-       
+      
+    def modify_stat(stat, level = 1)
+
+    end
+ 
     # Boolean, true if Noble.
     def noble?
       @upp[:soc] > 10

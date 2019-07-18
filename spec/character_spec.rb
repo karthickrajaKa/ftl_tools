@@ -65,6 +65,12 @@ module FTLTools
       expect(person.skills).to eq("Blade-1, GunCbt-2")
     end      
 
+    #it 'can modify a stat' do
+    #  person.upp = { str: 7, dex: 7, end: 7, int: 7, edu: 7, soc: 7 }
+    #  expect(person.upp['int']).to eq(9)
+    #end
+
+
   end
 end
 
